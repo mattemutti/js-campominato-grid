@@ -1,5 +1,4 @@
 
-
 // - Creare un id="container" e stilizzarlo al centro  e richiamiamo in js l'id=container 
 // - creare un div dove aggiugeremo le caselle del campo minato
 // - creare delle caselle stilizzate in css e assegnamoli una classe
@@ -9,19 +8,16 @@ const containerEl = document.getElementById('container'); //dichiaro la variabil
 const maxCellsNumber = 101; // dichiariamo una costante con il numero di celle che vogliamo creare
 const startPlay = document.getElementById('btn_start')
 
-
 startPlay.addEventListener('click', function(){
 
-
 	// cancelliamo un eventuale partita già iniziata
+	// bisogna cancellare eventuali div con class="box" in pagina
 
 
 
+	//***********************/
 
 
-	
-	
-	console.log("rimosso");
 
 	// - richiamiamo da js il container e gli aggiungiamo al suo interno 100 div con la classe .box stilizzata in css
 	// - ogni div dovrà essere numerato progressivamente con un ciclo for, lo stesso che creerà i div.
@@ -32,7 +28,6 @@ startPlay.addEventListener('click', function(){
 		containerEl.insertAdjacentHTML('beforeend', markUp) //ogni volta che cicla crea un markUp al .containerprima della fine
 	
 	}
-	
 	
 	// - creare una regola css che colora il background della cella di azzurro quando clicchiamo dulla casella e
 	// dia in console log il numero della casella cliccata
@@ -49,14 +44,9 @@ startPlay.addEventListener('click', function(){
 	
 			element.style.backgroundColor = 'azure'
 			console.log("È stata selezionata la cella:",  element);
-			
-	
+
 		});
-	
 	}
-
-
-	
 })
 
 
