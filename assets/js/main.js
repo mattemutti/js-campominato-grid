@@ -11,8 +11,18 @@ const startPlay = document.getElementById('btn_start')
 
 
 startPlay.addEventListener('click', function(){
+
+
+	// cancelliamo un eventuale partita già iniziata
+
+
+
+
+
 	
 	
+	console.log("rimosso");
+
 	// - richiamiamo da js il container e gli aggiungiamo al suo interno 100 div con la classe .box stilizzata in css
 	// - ogni div dovrà essere numerato progressivamente con un ciclo for, lo stesso che creerà i div.
 	
