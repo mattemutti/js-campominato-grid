@@ -9,7 +9,7 @@ console.log(containerEl);
  let numCell;
 
 const maxCellsNumber = 100; // dichiariamo una costante con il numero di celle che vogliamo creare
-const markUp = `<div class="box">1+1</div>` // dichiariamo la variabile con l'oggettoi html che vogliamo aggiungere
+const markUp = `<div class="box"></div>` // dichiariamo la variabile con l'oggettoi html che vogliamo aggiungere
 
 
 
