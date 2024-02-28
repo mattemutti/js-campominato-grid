@@ -13,9 +13,7 @@ startPlay.addEventListener('click', function(){
 	// cancelliamo un eventuale partita già iniziata
 	// bisogna cancellare eventuali div con class="box" in pagina
 
-
-
-	//***********************/
+	containerEl.innerHTML = ""
 
 
 
