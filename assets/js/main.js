@@ -15,8 +15,7 @@ startPlay.addEventListener('click', function(){
 
 	containerEl.innerHTML = ""
 
-
-
+	
 	// - richiamiamo da js il container e gli aggiungiamo al suo interno 100 div con la classe .box stilizzata in css
 	// - ogni div dovrà essere numerato progressivamente con un ciclo for, lo stesso che creerà i div.
 	

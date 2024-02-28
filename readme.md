@@ -25,16 +25,6 @@ Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed 
 - quando clicchiamo sulla cella, questa dovrà colorarsi di azzuro e stampare il numero corrispondente in console
 
 
-
-
-
-
-
-
-
-
-
-
 # Bonus
 Aggiungere una select accanto al bottone di generazione, che fornisca una scelta tra tre diversi livelli di difficoltà:
 
