@@ -17,30 +17,25 @@ startPlay.addEventListener('click', function () {
 
 	// Creo e controllo 16 numeri randomici diversi che fungeranno da funghi
 
-	let numbArray = false // variabile di fine ciclo while
-	let numbMushrooms = [];
-	let i = 0
-	console.log(numbArray, numbMushrooms, i);
+	let numbArray = true // variabile di fine ciclo while
+	let numbMushrooms = []; // dichiaro un array vuoto
+	let i = 0 // dichiaro il contatore per le posizioni interne dell'array
+	// console.log(numbArray, numbMushrooms, i);
+
 	while (numbArray) {
-		
-		console.log("entra");
-		let element = numbMushrooms[i];
-		console.log(numbMushrooms);
 
 		let numbRand = randomNumber(1, 100);
-		console.log(numbRand);
-
-		if (cercaInArray(numbMushrooms, numbRand) == false) {
+	
+		if (cercaInArray(numbMushrooms, numbRand) == true) {
 			numbMushrooms.push(numbRand);
 		}
 
-		if (i = 16) {
-			numbArray = true
+		if (numbMushrooms.length >= 16) {
+			numbArray = false
 		}
 
-		i++
 	}
-	
+
 	console.log(numbMushrooms);
 
 	// - richiamiamo da js il container e gli aggiungiamo al suo interno 100 div con la classe .box stilizzata in css
@@ -52,9 +47,6 @@ startPlay.addEventListener('click', function () {
 		containerEl.insertAdjacentHTML('beforeend', markUp) //ogni volta che cicla crea un markUp al .containerprima della fine
 
 	}
-
-
-
 
 	// - creare una regola css che colora il background della cella di azzurro quando clicchiamo dulla casella e
 	// dia in console log il numero della casella cliccata
@@ -71,41 +63,36 @@ startPlay.addEventListener('click', function () {
 
 		element.addEventListener('click', function (e) {
 
-			numClickUser = this.innerHTML;	
-			
-			console.log(numbMushrooms);//variabile che contiene il numero di casella cliccata dall'utente
-			
-			console.log(numClickUser); // numero cella cliccata dall'utente
-			
+			numClickUser = Number(this.innerHTML);
 			let checkNumChoiceUser = cercaInArray(numbMushrooms, numClickUser) // controllo del numero cliccato dall'utente con il numero scelto randomico e do una variabile booleana
-			console.log(checkNumChoiceUser);
+
+			console.log(numbMushrooms);//array con numeri random
+			console.log(numClickUser); // numero cella cliccata dall'utente
+			console.log(checkNumChoiceUser); // condizione se il numero selezionato dall'utente è presente nell'array
+
+
+
 			
+
+				if (checkNumChoiceUser = true) {			// non funziona ma perchèèèè?????
+
+					element.style.backgroundColor = 'red'
+					console.log("Loser");
+
+
+				} else {
+					
+					element.style.backgroundColor = 'blue'
+					countmovesOk++
+					console.log(countmovesOk);
+					console.log("Prosegui");
+
+				}
 			
-			if (checkNumChoiceUser = false) {
-
-				element.style.backgroundColor = 'red'
-				console.log("Loser");
-
-			} else {
-
-				element.style.backgroundColor = 'blue'
-				countmovesOk++
-				console.log(countmovesOk);
-
-			}
-
 
 		});
 	}
 })
-
-
-
-
-
-
-// - Creare un'array vuoto
-
 
 // Funzione per creare un numero randomico da un min e un max
 /**
@@ -126,15 +113,13 @@ function randomNumber(min, max) {
  * @returns {boolean}
  */
 function cercaInArray(l_array, il_valore) {
-	let flagTrovatoOno = false;
+	let flagTrovatoOno = true;
 	for (i = 0; i < l_array.length; i++) {
 		if (l_array[i] == il_valore) {
-
-			flagTrovatoOno = true; // aggiorno il flag se ho trovato il valore cercato
+			flagTrovatoOno = false; // aggiorno il flag se ho trovato il valore cercato
 		}
 	}
 	// altrimenti non faccio nulla, e rimane false, perche' non ho trovato quello che mi serviva
-	console.log(flagTrovatoOno);
 	return flagTrovatoOno;
 }
 
