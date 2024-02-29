@@ -53,8 +53,6 @@ startPlay.addEventListener('click', function () {
 
 
 // - Creare un'array vuoto
-const numbMushrooms = [];
-console.log(numbMushrooms);
 
 
 // Funzione per creare un numero randomico da un min e un max
@@ -68,31 +66,88 @@ function randomNumber(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-
-
+let numbMushrooms = [];
 let numbArray = true // variabile di fine ciclo while
 
-while (numbArray) {
+console.log(numbMushrooms);
+
+for (let i = 0; i < 15; i++) {
+	const element = numbMushrooms[i];
 	
-	let numbRand = randomNumber(1, 16);
-	console.log(numbRand);
+	let numbRand = randomNumber(1, 100);
+	
+	
+	if (cercaInArray(numbMushrooms, numbRand) == true) {
+		numbMushrooms.push(numbRand);
+		 
+		
+	}
+	
+	
+	
+	
+	console.log(numbMushrooms);
+	
+}	
+
+
+
+
+
+
+/**
+ * Cerca in array un `valore`
+ * e restituisci true se trovato, false se non trovato
+ * return {boolean} 
+*/
+function cercaInArray(l_array, il_valore) {
+	let flagTrovatoOno = false;
+    for (i = 0; i < l_array.lenght; i++) {
+        if (l_array[i] != il_valore) {
+
+            flagTrovatoOno = true; // aggiorno il flag se ho trovato il valore cercato
+        }
+    }  
+    // altrimenti non faccio nulla, e rimane false, perche' non ho trovato quello che mi serviva
+    return flagTrovatoOno;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+while (numbArray) {
+	console.log("inizio while");
 	
 	for (let i = 0; i < numbMushrooms.length; i++) {
 		const element = numbMushrooms[i];
-
-		console.log(element);
-	
+		console.log(typeof element, element);
+		
+		
 		if (element != numbRand) {
-			numbMushrooms.push(numbRand);
 		} 
+		
 		
 	}
 
-	if (numbMushrooms.length <= 15) {
-		numbArray = false;	
-	}
+	
+	
+	// if (numbMushrooms.length = 15) {
+	// 	numbArray = false;	
+	// }
 
+	
 }
+*/
+
 
 console.log(numbMushrooms);
 
