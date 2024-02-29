@@ -115,13 +115,13 @@ function randomNumber(min, max) {
 
 /**
  * Funzione che controlla se il valore è all'interno dell'array
- * @param {Array} l_array 
+ * @param {number} l_array 
  * @param {number} il_valore 
  * @returns {boolean}
- *//*
+ */
 function cercaInArray(l_array, il_valore) {
 	let flagTrovatoOno = false;
-	for (i = 0; i < l_array.lenght; i++) {
+	for (i = 0; i < l_array.length; i++) {
 		if (l_array[i] != il_valore) {
 
 			flagTrovatoOno = true; // aggiorno il flag se ho trovato il valore cercato
@@ -130,7 +130,7 @@ function cercaInArray(l_array, il_valore) {
 	// altrimenti non faccio nulla, e rimane false, perche' non ho trovato quello che mi serviva
 	console.log(flagTrovatoOno);
 	return flagTrovatoOno;
-}*/
+}
 
 
 
@@ -141,7 +141,7 @@ function cercaInArray(l_array, il_valore) {
 	console.log("entro nella funzione?");
 
 
-    for (let i = 0; i < l_array.lenght; i++) {
+    for (let i = 0; i < l_array.length; i++) {
 		const element = l_array[i];
 		console.log(element);
 
@@ -162,7 +162,7 @@ function cercaInArray(l_array, il_valore) {
 
  console.log(arrProva);
 
-let valoreNum = 3
+let valoreNum = 11
 console.log(valoreNum);
 
  console.log(cercaInArray(arrProva, valoreNum));
