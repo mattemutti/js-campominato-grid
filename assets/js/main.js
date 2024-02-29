@@ -17,25 +17,31 @@ startPlay.addEventListener('click', function () {
 
 	// Creo e controllo 16 numeri randomici diversi che fungeranno da funghi
 
-	let numbArray = true // variabile di fine ciclo while
-	let i = 0
+	let numbArray = false // variabile di fine ciclo while
 	let numbMushrooms = [];
+	let i = 0
+	console.log(numbArray, numbMushrooms, i);
 	while (numbArray) {
-
-		const element = numbMushrooms[i];
+		
+		console.log("entra");
+		let element = numbMushrooms[i];
+		console.log(numbMushrooms);
 
 		let numbRand = randomNumber(1, 100);
+		console.log(numbRand);
 
-		if (cercaInArray(numbMushrooms, numbRand) != true) {
+		if (cercaInArray(numbMushrooms, numbRand) == false) {
 			numbMushrooms.push(numbRand);
 		}
 
-		if (numbMushrooms.length >= 16) {
-			numbArray = false
+		if (i = 16) {
+			numbArray = true
 		}
-	}
-	console.log(numbMushrooms);
 
+		i++
+	}
+	
+	console.log(numbMushrooms);
 
 	// - richiamiamo da js il container e gli aggiungiamo al suo interno 100 div con la classe .box stilizzata in css
 	// - ogni div dovrà essere numerato progressivamente con un ciclo for, lo stesso che creerà i div.
@@ -122,7 +128,7 @@ function randomNumber(min, max) {
 function cercaInArray(l_array, il_valore) {
 	let flagTrovatoOno = false;
 	for (i = 0; i < l_array.length; i++) {
-		if (l_array[i] != il_valore) {
+		if (l_array[i] == il_valore) {
 
 			flagTrovatoOno = true; // aggiorno il flag se ho trovato il valore cercato
 		}
@@ -131,52 +137,4 @@ function cercaInArray(l_array, il_valore) {
 	console.log(flagTrovatoOno);
 	return flagTrovatoOno;
 }
-
-
-
-function cercaInArray(l_array, il_valore) {
-    let flagTrovatoOno = false;
-	console.log(typeof l_array, l_array);
-	console.log(typeof il_valore, il_valore);
-	console.log("entro nella funzione?");
-
-
-    for (let i = 0; i < l_array.length; i++) {
-		const element = l_array[i];
-		console.log(element);
-
-        if (l_array[i] == il_valore) {
-            flagTrovatoOno = true; // aggiorno il flag se ho trovato il valore cercato
-        }
-    }  
-    // altrimenti non faccio nulla, e rimane false, perche' non ho trovato quello che mi serviva
-    return flagTrovatoOno;
-	console.log(flagTrovatoOno);
-	console.log("qui ci arrivo?");
-}
-
-
-
-
- let arrProva = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
- console.log(arrProva);
-
-let valoreNum = 11
-console.log(valoreNum);
-
- console.log(cercaInArray(arrProva, valoreNum));
-
-
-
-
-
-
-
-
-
-
-
-
-
 
