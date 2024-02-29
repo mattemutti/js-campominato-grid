@@ -75,7 +75,7 @@ startPlay.addEventListener('click', function () {
 			console.log(checkNumChoiceUser);
 			
 			
-			if (checkNumChoiceUser = true) {
+			if (checkNumChoiceUser = false) {
 
 				element.style.backgroundColor = 'red'
 				console.log("Loser");
@@ -115,10 +115,10 @@ function randomNumber(min, max) {
 
 /**
  * Funzione che controlla se il valore è all'interno dell'array
- * @param {number} l_array 
+ * @param {Array} l_array 
  * @param {number} il_valore 
  * @returns {boolean}
- */
+ *//*
 function cercaInArray(l_array, il_valore) {
 	let flagTrovatoOno = false;
 	for (i = 0; i < l_array.lenght; i++) {
@@ -128,19 +128,44 @@ function cercaInArray(l_array, il_valore) {
 		}
 	}
 	// altrimenti non faccio nulla, e rimane false, perche' non ho trovato quello che mi serviva
+	console.log(flagTrovatoOno);
 	return flagTrovatoOno;
+}*/
+
+
+
+function cercaInArray(l_array, il_valore) {
+    let flagTrovatoOno = false;
+	console.log(typeof l_array, l_array);
+	console.log(typeof il_valore, il_valore);
+	console.log("entro nella funzione?");
+
+
+    for (let i = 0; i < l_array.lenght; i++) {
+		const element = l_array[i];
+		console.log(element);
+
+        if (l_array[i] == il_valore) {
+            flagTrovatoOno = true; // aggiorno il flag se ho trovato il valore cercato
+        }
+    }  
+    // altrimenti non faccio nulla, e rimane false, perche' non ho trovato quello che mi serviva
+    return flagTrovatoOno;
+	console.log(flagTrovatoOno);
+	console.log("qui ci arrivo?");
 }
 
 
 
 
+ let arrProva = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
+ console.log(arrProva);
 
+let valoreNum = 3
+console.log(valoreNum);
 
-
-
-
-
+ console.log(cercaInArray(arrProva, valoreNum));
 
 
 
