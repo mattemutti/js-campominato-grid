@@ -107,7 +107,7 @@ if not push it inside the array
 ripete il ciclo finché l'array vuoto non ha 16 elementi (non ripetuti)
 controlla se il numero casuale generato è incluso nell'array
 in caso contrario spingerlo all'interno dell'array
- 
+
 
 
 # Milestone 2

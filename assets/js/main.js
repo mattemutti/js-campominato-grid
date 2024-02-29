@@ -15,6 +15,27 @@ startPlay.addEventListener('click', function () {
 
 	containerEl.innerHTML = ""
 
+	// Creo e controllo 16 numeri randomici diversi che fungeranno da funghi
+
+	let numbArray = true // variabile di fine ciclo while
+	let i = 0
+	let numbMushrooms = [];
+	while (numbArray) {
+
+		const element = numbMushrooms[i];
+
+		let numbRand = randomNumber(1, 100);
+
+		if (cercaInArray(numbMushrooms, numbRand) != true) {
+			numbMushrooms.push(numbRand);
+		}
+
+		if (numbMushrooms.length >= 16) {
+			numbArray = false
+		}
+	}
+	console.log(numbMushrooms);
+
 
 	// - richiamiamo da js il container e gli aggiungiamo al suo interno 100 div con la classe .box stilizzata in css
 	// - ogni div dovrà essere numerato progressivamente con un ciclo for, lo stesso che creerà i div.
@@ -26,6 +47,9 @@ startPlay.addEventListener('click', function () {
 
 	}
 
+
+
+
 	// - creare una regola css che colora il background della cella di azzurro quando clicchiamo dulla casella e
 	// dia in console log il numero della casella cliccata
 	// - quando clicchiamo sulla cella, questa dovrà colorarsi di azzuro e stampare il numero corrispondente in console
@@ -33,15 +57,37 @@ startPlay.addEventListener('click', function () {
 	const boxElements = document.getElementsByClassName('box')
 	// console.log(boxEl);
 
+	let countmovesOk = 0
+
 	for (let i = 0; i < boxElements.length; i++) {
 		const element = boxElements[i];
 		//console.log(element);
 
 		element.addEventListener('click', function (e) {
 
-			element.style.backgroundColor = 'blue'
-			numClickUser = this.innerHTML;					//variabile che contiene il numero di casella cliccata dall'utente
-			console.log(numClickUser);
+			numClickUser = this.innerHTML;	
+			
+			console.log(numbMushrooms);//variabile che contiene il numero di casella cliccata dall'utente
+			
+			console.log(numClickUser); // numero cella cliccata dall'utente
+			
+			let checkNumChoiceUser = cercaInArray(numbMushrooms, numClickUser) // controllo del numero cliccato dall'utente con il numero scelto randomico e do una variabile booleana
+			console.log(checkNumChoiceUser);
+			
+			
+			if (checkNumChoiceUser = true) {
+
+				element.style.backgroundColor = 'red'
+				console.log("Loser");
+
+			} else {
+
+				element.style.backgroundColor = 'blue'
+				countmovesOk++
+				console.log(countmovesOk);
+
+			}
+
 
 		});
 	}
@@ -66,94 +112,46 @@ function randomNumber(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-let numbMushrooms = [];
-let numbArray = true // variabile di fine ciclo while
-
-console.log(numbMushrooms);
-
-
-
-
-for (let i = 0; i < 15; i++) {
-	const element = numbMushrooms[i];
-	
-	let numbRand = randomNumber(1, 16);
-	
-	
-	if (cercaInArray(numbMushrooms, numbRand) != true) {
-		numbMushrooms.push(numbRand);
-		 
-		
-	}
-	
-	
-	
-	
-	console.log(numbMushrooms);
-	
-}	
-
-
-
-
-
 
 /**
- * Cerca in array un `valore`
- * e restituisci true se trovato, false se non trovato
- * return {boolean} 
-*/
+ * Funzione che controlla se il valore è all'interno dell'array
+ * @param {number} l_array 
+ * @param {number} il_valore 
+ * @returns {boolean}
+ */
 function cercaInArray(l_array, il_valore) {
 	let flagTrovatoOno = false;
-    for (i = 0; i < l_array.lenght; i++) {
-        if (l_array[i] != il_valore) {
+	for (i = 0; i < l_array.lenght; i++) {
+		if (l_array[i] != il_valore) {
 
-            flagTrovatoOno = true; // aggiorno il flag se ho trovato il valore cercato
-        }
-    }  
-    // altrimenti non faccio nulla, e rimane false, perche' non ho trovato quello che mi serviva
-    return flagTrovatoOno;
-}
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-while (numbArray) {
-	console.log("inizio while");
-	
-	for (let i = 0; i < numbMushrooms.length; i++) {
-		const element = numbMushrooms[i];
-		console.log(typeof element, element);
-		
-		
-		if (element != numbRand) {
-		} 
-		
-		
+			flagTrovatoOno = true; // aggiorno il flag se ho trovato il valore cercato
+		}
 	}
-
-	
-	
-	// if (numbMushrooms.length = 15) {
-	// 	numbArray = false;	
-	// }
-
-	
+	// altrimenti non faccio nulla, e rimane false, perche' non ho trovato quello che mi serviva
+	return flagTrovatoOno;
 }
-*/
 
 
-console.log(numbMushrooms);
 
 
-// - cicliamo all'interno dei numeri delle celle ed al numero corrispondente inseriamo nella casella un emmoticon con innerHTML
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
