@@ -35,12 +35,13 @@ startPlay.addEventListener('click', function(){
 	
 	for (let i = 0; i < boxElements.length; i++) {   
 		const element = boxElements[i];
-		console.log(element);
+		//console.log(element);
 	
 		element.addEventListener('click', function (e) {
 	
 			element.style.backgroundColor = 'azure'
-			console.log("È stata selezionata la cella:",  element);
+			numClickUser = this.innerHTML;					//variabile che contiene il numero di casella cliccata dall'utente
+			console.log(numClickUser);
 
 		});
 	}
