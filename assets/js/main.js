@@ -71,13 +71,16 @@ let numbArray = true // variabile di fine ciclo while
 
 console.log(numbMushrooms);
 
+
+
+
 for (let i = 0; i < 15; i++) {
 	const element = numbMushrooms[i];
 	
-	let numbRand = randomNumber(1, 100);
+	let numbRand = randomNumber(1, 16);
 	
 	
-	if (cercaInArray(numbMushrooms, numbRand) == true) {
+	if (cercaInArray(numbMushrooms, numbRand) != true) {
 		numbMushrooms.push(numbRand);
 		 
 		
