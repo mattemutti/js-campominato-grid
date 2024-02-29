@@ -55,41 +55,41 @@ startPlay.addEventListener('click', function () {
 // - Creare un'array vuoto
 const numbMushrooms = [];
 console.log(numbMushrooms);
-// - Con un ciclo generiamo tramite Math.random, 16 numeri (min 1 max 16) che però devono essere diversi tra loro e li salviamo pushandoli  all'interno dell'array
 
-console.log();
+
+// Funzione per creare un numero randomico da un min e un max
 /**
- * crea un numero random da 1 a max
- * @param {number} min 
- * @param {number} max 
+ * crea un numero random da 1 a un numero max
+ * @param {number} min numero di partenza
+ * @param {number} max numero massimo
  * @returns {number}
- */
+*/
 function randomNumber(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 
-/*
-for (let i = 0; i < 16; i++) {
-	const element = numbMushrooms[i];
-	console.log(element);
 
-	 // calcolo un numero randomico e lo inserisco nell'array
-	
-}
-*/
-
-let numbArray = true
+let numbArray = true // variabile di fine ciclo while
 
 while (numbArray) {
 	
 	let numbRand = randomNumber(1, 16);
+	console.log(numbRand);
+	
+	for (let i = 0; i < numbMushrooms.length; i++) {
+		const element = numbMushrooms[i];
 
-	if (numbRand != numbMushrooms && numbMushrooms.length <= 15) {
-		numbMushrooms.push(numbRand);
-	} else {
+		console.log(element);
+	
+		if (element != numbRand) {
+			numbMushrooms.push(numbRand);
+		} 
+		
+	}
 
-		numbArray = false;
+	if (numbMushrooms.length <= 15) {
+		numbArray = false;	
 	}
 
 }
@@ -99,14 +99,3 @@ console.log(numbMushrooms);
 
 // - cicliamo all'interno dei numeri delle celle ed al numero corrispondente inseriamo nella casella un emmoticon con innerHTML
 
-
-
-for (let i = 0; i < numbMushrooms.length; i++) {
-	const element = numbMushrooms[i];
-
-	console.log(element);
-	if (element != ) {
-		
-	}
-	
-}
