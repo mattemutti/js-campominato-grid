@@ -19,7 +19,7 @@ startPlay.addEventListener('click', function () {
 
 	let numbArray = true // variabile di fine ciclo while
 	let numbMushrooms = []; // dichiaro un array vuoto
-	let i = 0 // dichiaro il contatore per le posizioni interne dell'array
+	// let i = 0 // dichiaro il contatore per le posizioni interne dell'array
 	// console.log(numbArray, numbMushrooms, i);
 
 	while (numbArray) {
@@ -36,7 +36,7 @@ startPlay.addEventListener('click', function () {
 
 	}
 
-	console.log(numbMushrooms);
+	// console.log(numbMushrooms);
 
 	// - richiamiamo da js il container e gli aggiungiamo al suo interno 100 div con la classe .box stilizzata in css
 	// - ogni div dovrà essere numerato progressivamente con un ciclo for, lo stesso che creerà i div.
@@ -55,40 +55,47 @@ startPlay.addEventListener('click', function () {
 	const boxElements = document.getElementsByClassName('box')
 	// console.log(boxEl);
 
-	let countmovesOk = 0
+	let countmovesOk = 0 // variabiule che conta le volte che l'utente clicca su una casella
 
 	for (let i = 0; i < boxElements.length; i++) {
 		const element = boxElements[i];
 		//console.log(element);
 
-		element.addEventListener('click', function (e) {
+		element.addEventListener('click', function () {
 
 			numClickUser = Number(this.innerHTML);
 			let checkNumChoiceUser = cercaInArray(numbMushrooms, numClickUser) // controllo del numero cliccato dall'utente con il numero scelto randomico e do una variabile booleana
 
-			console.log(numbMushrooms);//array con numeri random
-			console.log(numClickUser); // numero cella cliccata dall'utente
-			console.log(checkNumChoiceUser); // condizione se il numero selezionato dall'utente è presente nell'array
+			console.log("numero cella cliccat adall'utente", numClickUser, typeof numClickUser); // numero cella cliccata dall'utente
+			console.log("Il numero è presente nell'array dei numeri random?", checkNumChoiceUser, typeof checkNumChoiceUser); // condizione se il numero selezionato dall'utente è presente nell'array
+			console.log("array con numeri random", numbMushrooms, typeof numbMushrooms);//array con numeri random
 
 
 
-			
+			if (numClickUser = 1){
+				console.log("barvo 1");
+			} else {
+				console.log("altri numeri");
+			}
+			/*
 
-				if (checkNumChoiceUser = true) {			// non funziona ma perchèèèè?????
+				if () {			// non funziona ma perchèèèè?????
 
-					element.style.backgroundColor = 'red'
+					//element.style.backgroundColor = 'red'
 					console.log("Loser");
 
 
 				} else {
 					
-					element.style.backgroundColor = 'blue'
+					//element.style.backgroundColor = 'blue'
 					countmovesOk++
-					console.log(countmovesOk);
+					//console.log(countmovesOk);
 					console.log("Prosegui");
 
 				}
-			
+			*/
+
+				
 
 		});
 	}
@@ -122,4 +129,8 @@ function cercaInArray(l_array, il_valore) {
 	// altrimenti non faccio nulla, e rimane false, perche' non ho trovato quello che mi serviva
 	return flagTrovatoOno;
 }
+
+
+
+
 
