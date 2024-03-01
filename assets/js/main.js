@@ -72,14 +72,10 @@ startPlay.addEventListener('click', function () {
 
 
 
-			if (numClickUser = 1){
-				console.log("barvo 1");
-			} else {
-				console.log("altri numeri");
-			}
-			/*
+		
+			
 
-				if () {			// non funziona ma perchèèèè?????
+				if (checkNumChoiceUser == false) {			
 
 					//element.style.backgroundColor = 'red'
 					console.log("Loser");
@@ -93,7 +89,7 @@ startPlay.addEventListener('click', function () {
 					console.log("Prosegui");
 
 				}
-			*/
+			
 
 				
 
