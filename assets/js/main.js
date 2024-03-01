@@ -36,7 +36,7 @@ startPlay.addEventListener('click', function () {
 
 	}
 
-	// console.log(numbMushrooms);
+	console.log(numbMushrooms);
 
 	// - richiamiamo da js il container e gli aggiungiamo al suo interno 100 div con la classe .box stilizzata in css
 	// - ogni div dovrà essere numerato progressivamente con un ciclo for, lo stesso che creerà i div.
@@ -66,26 +66,23 @@ startPlay.addEventListener('click', function () {
 			numClickUser = Number(this.innerHTML);
 			let checkNumChoiceUser = cercaInArray(numbMushrooms, numClickUser) // controllo del numero cliccato dall'utente con il numero scelto randomico e do una variabile booleana
 
-			console.log("numero cella cliccat adall'utente", numClickUser, typeof numClickUser); // numero cella cliccata dall'utente
-			console.log("Il numero è presente nell'array dei numeri random?", checkNumChoiceUser, typeof checkNumChoiceUser); // condizione se il numero selezionato dall'utente è presente nell'array
-			console.log("array con numeri random", numbMushrooms, typeof numbMushrooms);//array con numeri random
+			//console.log("numero cella cliccat adall'utente", numClickUser, typeof numClickUser); // numero cella cliccata dall'utente
+			//console.log("Il numero è presente nell'array dei numeri random?", checkNumChoiceUser, typeof checkNumChoiceUser); // condizione se il numero selezionato dall'utente è presente nell'array
+			//console.log("array con numeri random", numbMushrooms, typeof numbMushrooms);//array con numeri random
 
 
+				if (checkNumChoiceUser == false) {			 // se il numero cliccato dall'utente è presente nel array
 
-		
-			
-
-				if (checkNumChoiceUser == false) {			
-
-					//element.style.backgroundColor = 'red'
+					element.style.backgroundColor = 'red'
 					console.log("Loser");
+					console.log("Il tuo punteggio è: ", countmovesOk );
 
 
 				} else {
 					
-					//element.style.backgroundColor = 'blue'
+					element.style.backgroundColor = 'blue'
 					countmovesOk++
-					//console.log(countmovesOk);
+					console.log(countmovesOk);
 					console.log("Prosegui");
 
 				}
