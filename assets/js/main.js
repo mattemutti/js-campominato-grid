@@ -61,38 +61,65 @@ startPlay.addEventListener('click', function () {
 		const element = boxElements[i];
 		//console.log(element);
 
-		element.addEventListener('click', function () {
+		element.addEventListener('click', ChechWinLose);
 
-			numClickUser = Number(this.innerHTML);
-			let checkNumChoiceUser = cercaInArray(numbMushrooms, numClickUser) // controllo del numero cliccato dall'utente con il numero scelto randomico e do una variabile booleana
-
-			//console.log("numero cella cliccat adall'utente", numClickUser, typeof numClickUser); // numero cella cliccata dall'utente
-			//console.log("Il numero è presente nell'array dei numeri random?", checkNumChoiceUser, typeof checkNumChoiceUser); // condizione se il numero selezionato dall'utente è presente nell'array
-			//console.log("array con numeri random", numbMushrooms, typeof numbMushrooms);//array con numeri random
-
-
-				if (checkNumChoiceUser == false) {			 // se il numero cliccato dall'utente è presente nel array
-
-					element.style.backgroundColor = 'red'
-					console.log("Loser");
-					console.log("Il tuo punteggio è: ", countmovesOk );
-
-
-				} else {
-					
-					element.style.backgroundColor = 'blue'
-					countmovesOk++
-					console.log(countmovesOk);
-					console.log("Prosegui");
-
-				}
-			
-
-				
-
-		});
+		// element.removeEventListener('click', ChechWinLose)
 	}
+
+
 })
+
+
+
+function ChechWinLose() {
+
+numClickUser = Number(this.innerHTML)  // numero della casella
+
+
+
+let checkNumChoiceUser = cercaInArray(numbMushrooms, numClickUser) // controllo del numero cliccato dall'utente con il numero scelto randomico e do una variabile booleana
+
+	
+	
+	
+	console.log("numero cella cliccat adall'utente", numClickUser, typeof numClickUser); // numero cella cliccata dall'utente
+	console.log("Il numero è presente nell'array dei numeri random?", checkNumChoiceUser, typeof checkNumChoiceUser); // condizione se il numero selezionato dall'utente è presente nell'array
+	console.log("array con numeri random", numbMushrooms, typeof numbMushrooms);//array con numeri random
+	
+	
+		if (checkNumChoiceUser == false) {			 // se il numero cliccato dall'utente è presente nel array
+	
+			console.log("hai perso");
+			
+			/*element.style.backgroundColor = 'red'
+			console.log("Loser");
+			alert(`Il tuo punteggio è: ${countmovesOk}` );
+			element.removeEventListener('click', ChechWinLose)
+	*/
+
+
+
+		} else {
+			
+	console.log("hai vinto");
+
+			/*
+			element.style.backgroundColor = 'blue'
+			countmovesOk++
+			console.log(countmovesOk);
+			console.log("Prosegui");
+	*/
+
+
+
+		}
+
+		
+
+
+
+
+}
 
 // Funzione per creare un numero randomico da un min e un max
 /**
