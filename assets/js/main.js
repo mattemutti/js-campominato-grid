@@ -6,7 +6,12 @@
 const containerEl = document.getElementById('container'); //dichiaro la variabile associandola al container in html
 // console.log(containerEl);
 const maxCellsNumber = 101; // dichiariamo una costante con il numero di celle che vogliamo creare
-const startPlay = document.getElementById('btn_start')
+const startPlay = document.getElementById('btn_start');
+let countmovesOk;
+
+let numbMushrooms = []; // dichiaro un array vuoto
+
+let boxElements = [];
 
 startPlay.addEventListener('click', function () {
 
@@ -18,8 +23,8 @@ startPlay.addEventListener('click', function () {
 	// Creo e controllo 16 numeri randomici diversi che fungeranno da funghi
 
 	let numbArray = true // variabile di fine ciclo while
-	let numbMushrooms = []; // dichiaro un array vuoto
-	// let i = 0 // dichiaro il contatore per le posizioni interne dell'array
+	
+	numbMushrooms = [];
 	// console.log(numbArray, numbMushrooms, i);
 
 	while (numbArray) {
@@ -52,10 +57,10 @@ startPlay.addEventListener('click', function () {
 	// dia in console log il numero della casella cliccata
 	// - quando clicchiamo sulla cella, questa dovrà colorarsi di azzuro e stampare il numero corrispondente in console
 
-	const boxElements = document.getElementsByClassName('box')
+	boxElements = document.getElementsByClassName('box')
 	// console.log(boxEl);
 
-	let countmovesOk = 0 // variabile che conta le volte che l'utente clicca su una casella
+	countmovesOk = 0 // RESET variabile che conta le volte che l'utente clicca su una casella
 
 	for (let i = 0; i < boxElements.length; i++) {
 		const element = boxElements[i];
@@ -63,65 +68,56 @@ startPlay.addEventListener('click', function () {
 
 
 		element.addEventListener('click', chechWinLose)
+	}		
+})
 
+function chechWinLose(event) {
+	let element = event.target;
 
-			function chechWinLose() {
-				
-				// numero della casella
-				numClickUser = Number(this.innerHTML)
-				
-				// controllo del numero cliccato dall'utente con il numero scelto randomico e do una variabile booleana
-				let checkNumChoiceUser = cercaInArray(numbMushrooms, numClickUser)
-				
-				// Controlli variabili
-				//console.log("cliccato");
-				//console.log("numero cella cliccat adall'utente", numClickUser, typeof numClickUser); // numero cella cliccata dall'utente
-				//console.log("Il numero è presente nell'array dei numeri random?", checkNumChoiceUser, typeof checkNumChoiceUser); // condizione se il numero selezionato dall'utente è presente nell'array
-				//console.log("array con numeri random", numbMushrooms, typeof numbMushrooms);//array con numeri random
-				
-				
-				// IL PROBLEMA è QUI, NON MI LEGGE L'ARRAY COME NUMERI MA COME OGGETTO.
-				
-				
-				// se il numero cliccato dall'utente è presente nel array
-				if (checkNumChoiceUser == false) {
-					
-					console.log("hai perso");
-					
-					element.style.backgroundColor = 'red'
-					element.innerHTML = "🍄"
-					console.log("Loser");
-					alert(`Il tuo punteggio è: ${countmovesOk}`);
-					
-					element.removeEventListener('click',chechWinLose)
-					
-					
-				} else {
-					
-					element.style.backgroundColor = 'blue'
-					countmovesOk++
-					console.log(countmovesOk);
-					element.removeEventListener('click',chechWinLose)
-					
-					
-					
-				}
-			}
-				
-			
-		}
-		//element.removeEventListener('click', chechWinLose);
+	// numero della casella
+	let numClickUser = Number(element.innerHTML)
+	
+	// controllo del numero cliccato dall'utente con il numero scelto randomico e do una variabile booleana
+	let checkNumChoiceUser = cercaInArray(numbMushrooms, numClickUser)
+	
+	// Controlli variabili
+	//console.log("cliccato");
+	//console.log("numero cella cliccat adall'utente", numClickUser, typeof numClickUser); // numero cella cliccata dall'utente
+	//console.log("Il numero è presente nell'array dei numeri random?", checkNumChoiceUser, typeof checkNumChoiceUser); // condizione se il numero selezionato dall'utente è presente nell'array
+	//console.log("array con numeri random", numbMushrooms, typeof numbMushrooms);//array con numeri random
+	
+	// se il numero cliccato dall'utente è presente nel array
+	if (checkNumChoiceUser === false) {
 		
-	})
+		console.log("hai perso");
+		
+		element.style.backgroundColor = 'red'
+		element.innerHTML = "🍄"
+		console.log("Loser");
+		
+	
+		//element.removeEventListener('click',chechWinLose)
+		stopClick();
+		
+		alert(`Il tuo punteggio è: ${countmovesOk}`);
+	} else {
+		
+		element.style.backgroundColor = 'blue'
+		countmovesOk++
+		console.log(countmovesOk);
+		//element.removeEventListener('click',chechWinLose)
+	
+	}
+}
 	
 	
 	
-	
+	/*
 	function chechWinLose() {
 		
 		const boxElements = document.getElementsByClassName('box')
 
-}
+} */
 
 // Funzione per creare un numero randomico da un min e un max
 /**
@@ -154,19 +150,13 @@ function cercaInArray(l_array, il_valore) {
 
 
 
-/*
-function stopClick() {
 
-	
+function stopClick() {	
+	console.log(boxElements);
 	for (let i = 0; i < boxElements.length; i++) {
 		const element = boxElements[i];
 		//console.log(element);
 
-		 return element.removeEventListener('click',chechWinLose)
-
-
-		
-	}
-	
+		element.removeEventListener('click', chechWinLose);
+	}	
 }
-*/
