@@ -55,89 +55,71 @@ startPlay.addEventListener('click', function () {
 	const boxElements = document.getElementsByClassName('box')
 	// console.log(boxEl);
 
-	let countmovesOk = 0 // variabiule che conta le volte che l'utente clicca su una casella
+	let countmovesOk = 0 // variabile che conta le volte che l'utente clicca su una casella
 
 	for (let i = 0; i < boxElements.length; i++) {
 		const element = boxElements[i];
 		//console.log(element);
 
-	}
 
-		element.addEventListener('click', function()) {
-			console.log("cliccato");
+		element.addEventListener('click', chechWinLose)
 
 
-
-
-
-
-			// numero della casella
-
-			numClickUser = Number(this.innerHTML)
-
-
-			// controllo del numero cliccato dall'utente con il numero scelto randomico e do una variabile booleana
-
-			let checkNumChoiceUser = cercaInArray(numbMushrooms, numClickUser)
-
-
-			// Controlli variabili
-
-			console.log("numero cella cliccat adall'utente", numClickUser, typeof numClickUser); // numero cella cliccata dall'utente
-			console.log("Il numero è presente nell'array dei numeri random?", checkNumChoiceUser, typeof checkNumChoiceUser); // condizione se il numero selezionato dall'utente è presente nell'array
-			console.log("array con numeri random", numbMushrooms, typeof numbMushrooms);//array con numeri random
-
-
-			// IL PROBLEMA è QUI, NON MI LEGGE L'ARRAY COME NUMERI MA COME OGGETTO.
-
-
-
-			// se il numero cliccato dall'utente è presente nel array
-
-			if (checkNumChoiceUser == false) {
-
-				console.log("hai perso");
-
-				/*element.style.backgroundColor = 'red'
-				console.log("Loser");
-				alert(`Il tuo punteggio è: ${countmovesOk}` );
-				element.removeEventListener('click', ChechWinLose)
-		*/
-
-
-
-			} else {
-
-				console.log("prosegui");
-
-				/*
-				element.style.backgroundColor = 'blue'
-				countmovesOk++
-				console.log(countmovesOk);
-				console.log("Prosegui");
-		*/
-
-
-
+			function chechWinLose() {
+				
+				// numero della casella
+				numClickUser = Number(this.innerHTML)
+				
+				// controllo del numero cliccato dall'utente con il numero scelto randomico e do una variabile booleana
+				let checkNumChoiceUser = cercaInArray(numbMushrooms, numClickUser)
+				
+				// Controlli variabili
+				//console.log("cliccato");
+				//console.log("numero cella cliccat adall'utente", numClickUser, typeof numClickUser); // numero cella cliccata dall'utente
+				//console.log("Il numero è presente nell'array dei numeri random?", checkNumChoiceUser, typeof checkNumChoiceUser); // condizione se il numero selezionato dall'utente è presente nell'array
+				//console.log("array con numeri random", numbMushrooms, typeof numbMushrooms);//array con numeri random
+				
+				
+				// IL PROBLEMA è QUI, NON MI LEGGE L'ARRAY COME NUMERI MA COME OGGETTO.
+				
+				
+				// se il numero cliccato dall'utente è presente nel array
+				if (checkNumChoiceUser == false) {
+					
+					console.log("hai perso");
+					
+					element.style.backgroundColor = 'red'
+					element.innerHTML = "🍄"
+					console.log("Loser");
+					alert(`Il tuo punteggio è: ${countmovesOk}`);
+					
+					element.removeEventListener('click',chechWinLose)
+					
+					
+				} else {
+					
+					element.style.backgroundColor = 'blue'
+					countmovesOk++
+					console.log(countmovesOk);
+					element.removeEventListener('click',chechWinLose)
+					
+					
+					
+				}
 			}
-
-			//element.removeEventListener('click', chechWinLose);
-
+				
+			
 		}
-
-
-
-})
-
-
-
-function chechWinLose(numbMushrooms) {
-
-
-
-
-
-
+		//element.removeEventListener('click', chechWinLose);
+		
+	})
+	
+	
+	
+	
+	function chechWinLose() {
+		
+		const boxElements = document.getElementsByClassName('box')
 
 }
 
@@ -172,5 +154,19 @@ function cercaInArray(l_array, il_valore) {
 
 
 
+/*
+function stopClick() {
+
+	
+	for (let i = 0; i < boxElements.length; i++) {
+		const element = boxElements[i];
+		//console.log(element);
+
+		 return element.removeEventListener('click',chechWinLose)
 
 
+		
+	}
+	
+}
+*/
